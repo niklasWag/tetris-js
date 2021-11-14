@@ -53,7 +53,7 @@ var dx, dy,        // pixel size of a single tetris block
     current,       // the current piece
     next,          // the next piece
     score,         // the current score
-    vscore,        // the currently displayed score (it catches up to score in small chunks - like a spinning slot machine)
+    vscore,        // the currently displayed score (it catches up to score in small chunks - like a slot machine)
     rows,          // number of completed rows in the current game
     step;          // how long before current piece drops by 1 row
 
@@ -109,6 +109,8 @@ function randomPiece() {
 function run() {
 
     addEvents(); // attach keydown and resize events
+
+
 
     var last = now = timestamp();
 
@@ -261,7 +263,7 @@ function reset() {
 function update(idt) {
     if (playing) {
         if (vscore < score)
-            setVisualScore(vscore + 1);
+            setVisualScore(vscore + 1); // for "slot machine optic"
         handle(actions.shift());
         dt = dt + idt;
         if (dt > step) {
